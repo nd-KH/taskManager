@@ -1,6 +1,9 @@
 package main
 
 // go package init == nd-KH/taskmanager
+//TODO:
+
+
 
 import(
 	"fmt"
@@ -9,11 +12,11 @@ import(
 	tasks "nd-KH/taskmanager/tasks"
 )
 
-struct tasks {
-	name string
-	description string
-	complete bool
-}
+// struct tasks {
+// 	name string
+// 	description string
+// 	complete bool
+// }
 
 func main() {
 	for{
@@ -41,5 +44,7 @@ func makeChoice(x int){
 		tasks.EditTasks()
 	case 0:
 		os.Exit(0)
+	default:
+		fmt.Println("That is an invalid option!")
 	}
 }
