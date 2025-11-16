@@ -9,6 +9,12 @@ import(
 	tasks "nd-KH/taskmanager/tasks"
 )
 
+struct tasks {
+	name string
+	description string
+	complete bool
+}
+
 func main() {
 	for{
 		fmt.Println("Please choose the option you would like to do:")
@@ -19,10 +25,7 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
-
-
 		makeChoice(int(choice))
-
 	}
 }
 
