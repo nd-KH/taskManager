@@ -2,6 +2,8 @@ package logic
 
 import(
 	"fmt"
+	"os"
+	"encoding/json"
 )
 
 type Task struct {
@@ -11,8 +13,8 @@ type Task struct {
 	complete		bool
 }
 
-func LoadJson()([]Task, err) {
-	data, err := os.Readfile("taskData.json")
+func LoadJson()([]Task, error) {
+	data, err := os.ReadFile("taskData.json")
 	if err != nil {
 		return nil, err
 	}
@@ -23,16 +25,17 @@ func LoadJson()([]Task, err) {
 	return Tasks, nil
 }
 
-func SaveJson(Tasks []Task)(err){
-	data, err := json.Marshalindent(Tasks, "", "  ")
+func SaveJson(Tasks []Task)(error){
+	data, err := json.MarshalIndent(Tasks, "", "  ")
 	if err != nil {
-		return nil, err
+		return err
 	}
-	return os.Writefile("taskData.json", data, 0644)
+	return os.WriteFile("taskData.json", data, 0644)
 }
 
-func CreateFile()(err) {
+func CreateFile()error {
 	file, err := os.Create("taskData.json")
+	fmt.Println("Wrote file: ", file)
 	if err != nil {
 		return err
 	}

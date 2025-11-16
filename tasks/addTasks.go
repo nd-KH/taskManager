@@ -1,14 +1,14 @@
 package tasks
 
-import(
-	"fmt"
-	logic "nd-KH/taskmanager/logic"
-)
+// import(
+// 	"fmt"
+// 	logic "nd-KH/taskmanager/logic"
+// )
 
-func AddTasks() {
+// func AddTasks() {
 	
-}
+// }
 
-func createTasks(){
+// func createTasks(){
 
-}
+// }

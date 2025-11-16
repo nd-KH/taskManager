@@ -15,8 +15,8 @@ import(
 
 
 func main() {
-	if err := LoadJson(); err != nil {
-		if err := CreateFil(); err != nil {
+	if Tasks, err := logic.LoadJson(); err != nil {
+		if err := logic.CreateFile(); err != nil {
 			log.Fatal(err)
 		}
 	}
@@ -37,12 +37,15 @@ func makeChoice(x int){
 	case 1:
 		tasks.ListTasks()
 	case 2:
-		tasks.AddTasks()
+		// tasks.AddTasks()
 	case 3:
 		tasks.DeleteTasks()
 	case 4:
 		tasks.EditTasks()
 	case 0:
+		if err := logic.SaveJson(Tasks); err != nil {
+			log.Fatal(err)
+		}
 		os.Exit(0)
 	default:
 		fmt.Println("That is an invalid option!")
