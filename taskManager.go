@@ -10,19 +10,19 @@ import(
 	"os"
 	"log"
 	tasks "nd-KH/taskmanager/tasks"
+	logic "nd-KH/taskmanager/logic"
 )
 
-// struct tasks {
-// 	name string
-// 	description string
-// 	complete bool
-// }
 
 func main() {
+	if err := LoadJson(); err != nil {
+		if err := CreateFil(); err != nil {
+			log.Fatal(err)
+		}
+	}
 	for{
 		fmt.Println("Please choose the option you would like to do:")
 		fmt.Print("1. List tasks\n2. Add Tasks\n3. Delete Tasks\n4. Edit Tasks\n\n0. Exit")
-		
 		var choice int
 		_, err := fmt.Scanln(&choice)
 		if err != nil {

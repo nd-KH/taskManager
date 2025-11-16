@@ -2,8 +2,13 @@ package tasks
 
 import(
 	"fmt"
+	logic "nd-KH/taskmanager/logic"
 )
 
 func AddTasks() {
-	fmt.Println("Adding Tasks")
+	
+}
+
+func createTasks(){
+
 }
